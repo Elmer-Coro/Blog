@@ -8,7 +8,6 @@ import SobreMi from "./pages/SobreMi";
 import ArticuloUno from "./articles/ArticuloUno";
 import ArticuloDos from "./articles/ArticuloDos";
 import ArticuloTres from "./articles/ArticuloTres";
-import CodeEditor from "./components/CodeEditor";
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
       <Nav />
       <Routes>
         <Route
-          path='/'
+          path='/blog/'
           element={<Inicio />}
         />
         <Route

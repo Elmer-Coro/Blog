@@ -1,8 +1,5 @@
 import React from "react";
-import me from "../../public/undraw_code_thinking_re_gka2.svg";
 import { FaYoutube } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
 export default function SobreMi() {
