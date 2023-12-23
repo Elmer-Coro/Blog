@@ -1,24 +1,50 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { IoIosMore } from "react-icons/io";
+import React, { useState } from "react";
+import { CiCircleMore } from "react-icons/ci";
+import Modal from "react-modal";
+import ArticuloUno from "../articles/ArticuloUno";
 
-export default function Card({ title, description, route }) {
+export default function Card({ img, title, description, article }) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
-    <div className='max-w-sm rounded overflow-hidden shadow-lg border bg-white'>
-      <div className='px-6 py-4'>
-        <div className='font-bold text-slate-900 text-center text-xl mb-2'>
-          {title}
+    <>
+      <article className='flex gap-2 my-4'>
+        <img
+          className='w-40 '
+          src={img}
+          alt=''
+        />
+        <div>
+          <h1 className='uppercase font-bold text-slate-900 text-sm'>
+            {title}
+          </h1>
+          <p className='text-slate-800 text-sm font-medium'>{description}</p>
         </div>
-        <p className='text-slate-600 text-base'>{description}</p>
-      </div>
-      <div className='px-6 py-4'>
-        <Link
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full  items-end gap-2 justify-center'
-          to={route}>
-          Ver Más
-          {/* <IoIosMore /> */}
-        </Link>
-      </div>
-    </div>
+        <CiCircleMore
+          className='text-9xl cursor-pointer'
+          onClick={openModal}
+        />
+      </article>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel='Example Modal'>
+        <button
+          onClick={closeModal}
+          className='text-2xl'>
+          ❌
+        </button>
+        {article}
+      </Modal>
+    </>
   );
 }

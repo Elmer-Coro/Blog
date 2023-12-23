@@ -1,36 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { CiMenuFries } from "react-icons/ci";
 
 export default function Nav() {
+  let disable = false;
+  function listNavbar() {
+    let navbar = document.getElementById("navbar");
+    if (!disable) {
+      navbar.style.display = "block";
+      disable = true;
+    } else {
+      navbar.style.display = "none";
+      disable = false;
+    }
+  }
+
   return (
-    <nav className='max-w-[1200px] m-auto pt-6 flex justify-between items-center text-slate-700 font-sans'>
-      <div className='max-w-[100px]'>
-        <h2 className='font-bold text-2xl text-slate-900'>
-          &lt;&gt;Master<span className='text-violet-800'>Dev</span>&lt;/&gt;
-        </h2>
-      </div>
-      <ul className='flex items-center gap-x-8'>
-        <li>
-          <Link
-            className='text-sm font-semibold hover:text-violet-700'
-            to='/'>
-            Inicio
-          </Link>
-        </li>
-        <li>
-          <Link
-            className='text-sm font-semibold hover:text-violet-700'
-            to='/articulos'>
-            Articulos
-          </Link>
-        </li>
-        <li>
-          <Link
-            className='text-sm font-semibold hover:text-violet-700'
-            to='/sobre-mi'>
-            Sobre mi
-          </Link>
-        </li>
+    <nav className='max-w-[1000px] m-auto'>
+      <CiMenuFries
+        className='text-2xl md:hidden'
+        onClick={listNavbar}
+      />
+      <ul
+        id='navbar'
+        className='hidden md:flex gap-2 text-white uppercase text-sm text-center font-semibold'>
+        <li className='bg-slate-950 w-[200px] py-1'>Inicio</li>
+        <li className='bg-slate-950 w-[200px] py-1'>Articulos</li>
+        <li className='bg-slate-950 w-[200px] py-1'>Historias</li>
+        <li className='bg-slate-950 w-[200px] py-1'>Portafolio</li>
+        <li className='bg-slate-950 w-[200px] py-1'>Contacto</li>
       </ul>
     </nav>
   );

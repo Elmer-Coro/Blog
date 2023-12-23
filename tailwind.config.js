@@ -3,8 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        bg: "./public/bg.svg",
+      gridTemplateColumns: {
+        // Complex site-specific column configuration
+        footer: "70% 1fr",
       },
     },
   },
